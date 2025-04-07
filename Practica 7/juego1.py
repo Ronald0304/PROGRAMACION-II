@@ -8,7 +8,7 @@ class Juego:
         self.puntaje_actual = 0
 
     def reiniciaPartida(self):
-        self.numeroDeVidas = 3  # Se puede modificar según necesidad
+        self.numeroDeVidas = 3  # Se puede modificar
         self.puntaje_actual = 0
         print("Juego reiniciado. Tienes", self.numeroDeVidas, "vidas.")
 
@@ -41,7 +41,7 @@ class JuegoAdivinaNumero(Juego):
                 if intento == self.numeroAAdivinar:
                     print("¡Acertaste!")
                     self.actualizaRecord()
-                    self.numeroAAdivinar = random.randint(0, 10)  # Genera un nuevo número
+                    self.numeroAAdivinar = random.randint(0, 10)  
                     print("Nuevo número generado. Sigue jugando!")
                 else:
                     if not self.quitaVida():
@@ -64,5 +64,5 @@ class JuegoAdivinaNumero(Juego):
 
 # Clase Aplicacion
 if __name__ == "__main__":
-    juego = JuegoAdivinaNumero(3)  # Número de vidas inicial
+    juego = JuegoAdivinaNumero(3)  
     juego.juega()
