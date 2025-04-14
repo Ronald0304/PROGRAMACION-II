@@ -33,7 +33,13 @@ class D(A, B):
         self.z += 1
 
 if __name__ == "__main__":
-    obj = D(5, 7, 0)
+    obj = D(1, 2, 3)
     print(f"Antes: x={obj.x}, y={obj.y}, z={obj.z}")
     obj.incrementaXYZ()
     print(f"Después de incrementaXYZ: x={obj.x}, y={obj.y}, z={obj.z}")
+    obj.incrementaXZ()
+    print(f"Después de incrementaXZ: x={obj.x}, y={obj.y}, z={obj.z}")
+    obj.incrementaYZ()
+    print(f"Después de incrementaYZ: x={obj.x}, y={obj.y}, z={obj.z}")
+    obj.incrementaZ()
+    print(f"Después de incrementaZ: x={obj.x}, y={obj.y}, z={obj.z}")
