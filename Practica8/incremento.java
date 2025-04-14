@@ -1,110 +1,89 @@
-public class Main {
-    public static void main(String[] args) {
-        D obj = new D(1, 2, 3);
-        System.out.println("Antes: x=" + obj.getX() + ", y=" + obj.getY() + ", z=" + obj.getZ());
-        
-        obj.incrementaXYZ();
-        
-        System.out.println("Después de incrementaXYZ: x=" + obj.getX() + ", y=" + obj.getY() + ", z=" + obj.getZ());
-    }
-}
-
-class Z {
-    public int valor;
-
-    public Z(int valor) {
-        this.valor = valor;
-    }
-}
-
 class A {
-    private int x;
-    private Z z;
+    public int x;
+    public int z;
 
-    public A(int x, Z z) {
+    public A(int x, int z) {
         this.x = x;
         this.z = z;
     }
 
     public void incrementaXZ() {
         x++;
-        z.valor++;
+        z++;
     }
 
     public void incrementaZ() {
-        z.valor++;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public Z getZ() {
-        return z;
-    }
-
-    public void setX(int x) {
-        this.x = x;
+        z++;
     }
 }
 
 class B {
-    private int y;
-    private Z z;
+    public int y;
+    public int z;
 
-    public B(int y, Z z) {
+    public B(int y, int z) {
         this.y = y;
         this.z = z;
     }
 
     public void incrementaYZ() {
         y++;
-        z.valor++;
+        z++;
     }
 
     public void incrementaZ() {
-        z.valor++;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public Z getZ() {
-        return z;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+        z++;
     }
 }
 
-class D {
-    private A a;
-    private B b;
-    private Z z;
+public class D {
+    public int x, y, z;
 
-    public D(int x, int y, int zValor) {
-        this.z = new Z(zValor);
-        this.a = new A(x, z);
-        this.b = new B(y, z);
+    public D(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    // Métodos equivalentes a los de A y B
+    public void incrementaXZ() {
+        x++;
+        z++;
+    }
+
+    public void incrementaYZ() {
+        y++;
+        z++;
+    }
+
+    public void incrementaZ() {
+        z++;
     }
 
     public void incrementaXYZ() {
-        a.setX(a.getX() + 1);
-        b.setY(b.getY() + 1);
-        z.valor++;
+        x++;
+        y++;
+        z++;
     }
 
-    public int getX() {
-        return a.getX();
+    public void mostrar(String mensaje) {
+        System.out.println(mensaje + ": x=" + x + ", y=" + y + ", z=" + z);
     }
 
-    public int getY() {
-        return b.getY();
-    }
+    public static void main(String[] args) {
+        D obj = new D(1, 2, 3);
+        obj.mostrar("Antes");
 
-    public int getZ() {
-        return z.valor;
+        obj.incrementaXYZ();
+        obj.mostrar("Después de incrementaXYZ");
+
+        obj.incrementaXZ();
+        obj.mostrar("Después de incrementaXZ");
+
+        obj.incrementaYZ();
+        obj.mostrar("Después de incrementaYZ");
+
+        obj.incrementaZ();
+        obj.mostrar("Después de incrementaZ");
     }
 }
